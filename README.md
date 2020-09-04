@@ -16,7 +16,8 @@ This project can be accessed via the following link:
 
 ## Acknowledgments
 
-* Web Dev Simplified on Youtube
+* Web Dev Simplified: Quiz Tutorial
+* James Q Quick: Quiz Tutorial
 
 ## Contact
 Created by @DS1826
