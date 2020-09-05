@@ -12,9 +12,24 @@
 <body>
     <main class="container">
         <section id="home" class="flex-center flex-column">
-            <h1>JavaScript Quiz</h1>
-            <a id="play-btn" class="btn" href="game.html">Play</a>
-            <a id="scores-btn" class="btn" href="scores.html">High Scores</a>
+            <h1 id="main-title">JavaScript Quiz</h1>
+            <button id="play-btn" class="btn">Play</button>
+            <button id="scores-btn" class="btn">High Scores</button>
+            
+            <article id="questions-container">
+                <h3 id="question">Question</h3>
+                <article id="button-grid" class="btn-grid">
+                <button id="answer-1" class="btn answer-btn">Answer 1</button>
+                <button id="answer-2"class="btn answer-btn">Answer 2</button>
+                <button id="answer-3"class="btn answer-btn">Answer 3</button>
+                <button id="answer-4"class="btn answer-btn">Answer 4</button>
+            </article>
+
+            <footer id="quiz-footer">
+                <h3 id="score"></h3>
+
+            </footer>
+            </div>
         </section>
         
     </main>
