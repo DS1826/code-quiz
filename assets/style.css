@@ -33,7 +33,7 @@ h1, h2, h3, h4 {
 h1 {
     font-size: 5.4rem;
     color: #343483;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
   
   h1 > span {
@@ -64,9 +64,6 @@ body.wrong {
 
 .container {
     width: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: white;
     max-width: 80rem;
     margin: 0 auto;
@@ -88,6 +85,12 @@ body.wrong {
     box-shadow: 0 0 10px 2px;
 } */
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .flex-column {
     display: flex;
     flex-direction: column;
@@ -118,10 +121,11 @@ body.wrong {
 }
 
 /* BUTTONS */
+
 .btn {
     font-size: 1.8rem;
-    padding: 1rem 0;
-    width: 20rem;
+    padding: 2rem;
+    width: auto;
     text-align: center;
     border: 0.1rem solid darkblue;
     border-radius: 1rem;
@@ -131,15 +135,6 @@ body.wrong {
     background-color: #c6eb7c;
     outline: none;
   }
-
-/* .btn {
-    background-color: #c6eb7c;
-    border: 1px solid darkblue;
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: #343483;
-    outline: none;
-} */
 
 .btn:hover {
     cursor: pointer;
@@ -168,7 +163,7 @@ body.wrong {
 .answer-btn {
   font-size: 1.8rem;
   padding: 2rem;
-  width: 50rem;
+  width: auto;
   text-align: left;
   border: 0.1rem solid darkblue;
   border-radius: 1rem;
@@ -184,3 +179,29 @@ body.wrong {
     justify-content: center;
     align-items: center;
 }
+
+/* Media Queries */
+/*
+  These rules take effect when the browser's width
+  is either 768px or less.
+*/
+
+@media screen and (min-width: 640px) { 
+  .container {width: 50%;} 
+}
+
+/* Media Queries: Tablet Landscape */
+@media screen and (max-width: 1060px) {
+  .container { width:67%; }
+  /* #secondary { width:30%; margin-left:3%;}   */
+}
+
+/* Media Queries: Tabled Portrait */
+@media screen and (max-width: 768px) {
+  .container { width:100%; }
+  /* #secondary { width:100%; margin:0; border:none; } */
+}
+
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} } 
