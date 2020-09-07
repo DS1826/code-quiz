@@ -100,6 +100,16 @@ body.wrong {
     justify-content: center;
     align-items: center;
   }
+
+  .flex-left {
+    justify-content: left;
+    align-items: left;
+  }
+
+  .flex-right {
+    justify-content: right;
+    align-items: right;
+  }
   
   .justify-center {
     justify-content: center;
@@ -178,6 +188,16 @@ body.wrong {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Footer */
+
+.flex-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 5px 0 5px 10px;
+
 }
 
 /* Media Queries */

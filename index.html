@@ -3,36 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
     <title>JavaScript Quiz</title>
 
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+
 </head>
 
 <body>
-    <main class="container">
+    <main class="container flex-container">
+
         <section id="home" class="flex-center flex-column">
-            <h1 id="main-title">JavaScript Quiz</h1>
-            <button id="play-btn" class="btn">Play</button>
-            <button id="scores-btn" class="btn">High Scores</button>
-            
+
+            <!-- Main Title & Buttons -->
+            <header class="btn-grid">
+                <h1 id="main-title">JavaScript Quiz</h1>
+                <button id="play-btn" class="btn">Play</button>
+                <button id="scores-btn" class="btn">High Scores</button>
+            </header>
+
+            <!-- Question & Answer Section -->
             <article id="questions-container">
                 <h3 id="question">Question</h3>
                 <article id="button-grid" class="btn-grid">
-                <button id="answer-1" class="btn answer-btn">Answer 1</button>
-                <button id="answer-2"class="btn answer-btn">Answer 2</button>
-                <button id="answer-3"class="btn answer-btn">Answer 3</button>
-                <button id="answer-4"class="btn answer-btn">Answer 4</button>
-            </article>
+                    <button id="answer-1" class="btn answer-btn">Answer 1</button>
+                    <button id="answer-2" class="btn answer-btn">Answer 2</button>
+                    <button id="answer-3" class="btn answer-btn">Answer 3</button>
+                    <button id="answer-4" class="btn answer-btn">Answer 4</button>
+                </article>
 
-            <footer id="quiz-footer">
-                <h3 id="score"></h3>
-
-            </footer>
-            </div>
+                <!-- Current Score & Timer -->
+                <footer id="quiz-footer" class="flex-footer">
+                    <h3 id="score" class="flex-left"></h3>
+                    <h3 id="timer" class="flex-right"></h3>
+                </footer>
         </section>
-        
+
     </main>
+
     <script src="script.js"></script>
 </body>
 

@@ -1,16 +1,22 @@
 var startButton = document.getElementById("play-btn");
 var question = document.getElementById("question");
 var quizContent = document.getElementById("questions-container");
+
 var answer = document.getElementsByClassName("answer-btn");
-var scoresButton = document.getElementById("scores-btn");
 let newChoice1 = document.getElementById("answer-1");
 let newChoice2 = document.getElementById("answer-2");
 let newChoice3 = document.getElementById("answer-3");
 let newChoice4 = document.getElementById("answer-4");
+
+var scoresButton = document.getElementById("scores-btn");
 var recentScore = document.getElementById("score");
+
+
+var timerEl = document.getElementById("timer");
 
 var score = 0;
 var questionCounter = 0;
+var timer = 0;
 
 startButton.addEventListener("click", startGame);
 quizContent.classList.add("hidden");
@@ -25,9 +31,9 @@ function startGame() {
     getNextQuestion();
 }
 
+
 // Cycles through each multiple choice question in the array.
 function getNextQuestion() {
-
     question.textContent = questions[questionCounter].question;
 
     newChoice1.textContent = questions[questionCounter].choice1;
@@ -41,7 +47,6 @@ function getNextQuestion() {
 
     newChoice4.textContent = questions[questionCounter].choice4;
     newChoice4.addEventListener("click", selectAnswer);
-
 }
 
 // Validates the user's selected answer as true or false.
@@ -54,6 +59,8 @@ function selectAnswer() {
         document.getElementById("score").innerHTML = ("Current Score = " + (score+=10));
     } else {
         console.log("incorrect");
+        updateTimer() 
+        time -= 60;
     }
 
     questionCounter++;
@@ -68,7 +75,6 @@ function selectAnswer() {
 function gameOver() {
     document.getElementById("questions-container").innerHTML = "";
     document.getElementById("main-title").textContent = "Game Over";
-
 }
 
 // Displays High Scores from home page button
@@ -79,9 +85,26 @@ function highScores() {
     startButton.classList.add("hidden");
     scoresButton.classList.add("hidden");
     document.getElementById("main-title").textContent = "High Scores";
-    
 }
 
+const startingMinutes = 5;
+var time = startingMinutes * 60;
+
+setInterval(updateTimer, 1000);
+
+function updateTimer() {
+    const minutes = Math.floor(time / 60);
+    var seconds = time % 60;
+
+    seconds = seconds < 10 ? '0' + seconds: seconds;
+
+    timerEl.innerHTML = minutes + ":" + seconds;
+    time--;
+
+    if (time === 0) {
+        gameOver();
+    } 
+}
 // Question and Answer Index
 var questions = [
     {
