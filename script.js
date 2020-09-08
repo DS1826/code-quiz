@@ -21,7 +21,7 @@ var timer = 0;
 startButton.addEventListener("click", startGame);
 quizContent.classList.add("hidden");
 
-// Start the game by displaying the first multiple choice question.
+// Starts the game by removing the home page content and displaying the first question.
 function startGame() {
     console.log("The game has started!");
     startButton.classList.add("hidden");
@@ -32,7 +32,7 @@ function startGame() {
 }
 
 
-// Cycles through each multiple choice question in the array.
+// Displays each multiple choice question and answer set from the index.
 function getNextQuestion() {
     question.textContent = questions[questionCounter].question;
 
@@ -49,7 +49,8 @@ function getNextQuestion() {
     newChoice4.addEventListener("click", selectAnswer);
 }
 
-// Validates the user's selected answer as true or false.
+/*Validates user's selected answer by adding points for correct answers and 
+ decreases the countdown timer by 1 minute if for incorrect answers.*/
 function selectAnswer() {
     console.log("The answer has been selected!");
     var answerSelected = this.textContent;
@@ -72,12 +73,14 @@ function selectAnswer() {
     }
 }
 
+// Ends the game by clearing the questions container and displaying "Game Over."
 function gameOver() {
     document.getElementById("questions-container").innerHTML = "";
     document.getElementById("main-title").textContent = "Game Over";
+
 }
 
-// Displays High Scores from home page button
+// High Scores Display
 scoresButton.addEventListener("click", highScores) 
 
 function highScores() {
@@ -87,6 +90,8 @@ function highScores() {
     document.getElementById("main-title").textContent = "High Scores";
 }
 
+/* 5 minute countdown timer starts when the quiz begins. If the timer runs out
+before the user has finished the quiz then the game will be over.*/
 const startingMinutes = 5;
 var time = startingMinutes * 60;
 
@@ -105,6 +110,7 @@ function updateTimer() {
         gameOver();
     } 
 }
+
 // Question and Answer Index
 var questions = [
     {
