@@ -1,6 +1,12 @@
 var startButton = document.getElementById("play-btn");
 var question = document.getElementById("question");
 var quizContent = document.getElementById("questions-container");
+var highScoreEl = document.getElementById("high-scores");
+var scoresEl = document.getElementById("scores-list");
+var submitScoreBtn = document.getElementById("submit-score");
+var userInitials = document.getElementById("initials-text");
+var finalScore = document.getElementById("final-score");
+var recentScore = document.getElementById("score");
 
 var answer = document.getElementsByClassName("answer-btn");
 let newChoice1 = document.getElementById("answer-1");
@@ -9,7 +15,8 @@ let newChoice3 = document.getElementById("answer-3");
 let newChoice4 = document.getElementById("answer-4");
 
 var scoresButton = document.getElementById("scores-btn");
-var recentScore = document.getElementById("score");
+
+
 
 
 var timerEl = document.getElementById("timer");
@@ -57,16 +64,18 @@ function selectAnswer() {
     console.log(answerSelected);
     if (answerSelected === questions[questionCounter].answer) {
         console.log("correct");
-        document.getElementById("score").innerHTML = ("Current Score = " + (score+=10));
+        document.getElementById("score").innerHTML = ("Current Score = " + (score += 10));
     } else {
         console.log("incorrect");
-        updateTimer() 
+        updateTimer()
         time -= 60;
     }
 
+    localStorage.setItem("mostRecentScore", score);
+
     questionCounter++;
 
-    if (questionCounter >= 0 && questionCounter < 4) {
+    if (questionCounter >= 0 && questionCounter < 10) {
         getNextQuestion();
     } else {
         gameOver();
@@ -77,18 +86,27 @@ function selectAnswer() {
 function gameOver() {
     document.getElementById("questions-container").innerHTML = "";
     document.getElementById("main-title").textContent = "Game Over";
-
+    renderHighScores();
 }
 
-// High Scores Display
-scoresButton.addEventListener("click", highScores) 
 
-function highScores() {
-    gameOver();
-    startButton.classList.add("hidden");
-    scoresButton.classList.add("hidden");
-    document.getElementById("main-title").textContent = "High Scores";
+function renderHighScores() {
+    highScoreEl.classList.remove("hidden");
+    alert("Your Final Score = " + score + "!");
+    var initials = prompt("Enter your intials to save your high score:");
+    var scoreValue = localStorage.getItem("mostRecentScore");
+
+    localStorage.setItem("User Initials", initials);
+
+    if (initials === "") {
+        return;
+    }
+
+    var li = document.createElement("li");
+    li.textContent = initials + " " + scoreValue;
+    scoresEl.appendChild(li);
 }
+
 
 /* 5 minute countdown timer starts when the quiz begins. If the timer runs out
 before the user has finished the quiz then the game will be over.*/
@@ -101,7 +119,7 @@ function updateTimer() {
     const minutes = Math.floor(time / 60);
     var seconds = time % 60;
 
-    seconds = seconds < 10 ? '0' + seconds: seconds;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
 
     timerEl.innerHTML = minutes + ":" + seconds;
     time--;
@@ -147,6 +165,60 @@ var questions = [
         choice3: "C. <script>",
         choice4: "D. <javascript>",
         answer: "C. <script>"
+    }
+    ,
+    {
+        question: "It is possible to nest functions in JavaScript.",
+        choice1: "A. True",
+        choice2: "B. False",
+        choice3: "None of the above",
+        choice4: "All of the above",
+        answer: "A. True"
+    }
+    ,
+    {
+        question: "To test for a specific condition use the ___ statement.",
+        choice1: "A. If",
+        choice2: "B. Switch",
+        choice3: "C. For",
+        choice4: "D. While",
+        answer: "A. If"
+    }
+    ,
+    {
+        question: "What is the correct synatx for referring to an external script?",
+        choice1: "A. <script href='xxx.js'>",
+        choice2: "B. <script src='xxx.js'>",
+        choice3: "C. <script type='xxx.js'>",
+        choice4: "D. <javascript src='xxx.js>",
+        answer: "B. <script src='xxx.js'>"
+    }
+    ,
+    {
+        question: "What does the keyword 'this' refer to in JavaScript?",
+        choice1: "A. It refers to the previous object",
+        choice2: "B. It is a variable that contains a value>",
+        choice3: "C. It is a constant that contains a value>",
+        choice4: "D. It refers to the current object",
+        answer: "D. It refers to the current object"
+    }
+    ,
+    {
+        question: "Which method returns the length of a string?",
+        choice1: "A. index()",
+        choice2: "B. size()",
+        choice3: "C. length()",
+        choice4: "D. None of the above",
+        answer: "C. length()"
+    }
+    ,
+    {
+        question: "Which of the following will write 'Hello World' in an alert box?",
+        choice1: "A. msgAlert(Hello World);",
+        choice2: "B. alert('Hello World');",
+        choice3: "C. alert(Hello World);",
+        choice4: "D. alertMsg('Hello World');",
+        answer: "B. alert('Hello World');"
     }
 ];
 
