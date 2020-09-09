@@ -4,7 +4,6 @@
 }
 
 /* Border Box */
-
 * {
     box-sizing: border-box;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -12,12 +11,8 @@
     padding: 0;
     color: #333;
 }
-/* *, *::before, *::after {
-    box-sizing: border-box;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 26px;
-} */
 
+/* General Styles */
 body {
     display: flex;
     width: 100vw;
@@ -52,14 +47,6 @@ h1 {
     font-weight: 500;
   }
 
-body.correct {
-    background-color: #c6eb7c;
-}
-
-body.wrong {
-    background-color: rgb(201, 85, 85);
-}
-
 /* Utilities */
 
 .container {
@@ -76,14 +63,6 @@ body.wrong {
 .container > * {
     width: 100%;
 }
-/* .container {
-    width: 800px;
-    max-width: 70%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
-} */
 
 .flex-container {
   display: flex;
@@ -91,7 +70,7 @@ body.wrong {
   justify-content: center;
   align-items: center;
 }
-.flex-column {
+  .flex-column {
     display: flex;
     flex-direction: column;
   }
@@ -103,12 +82,10 @@ body.wrong {
 
   .flex-left {
     justify-content: left;
-    align-items: left;
   }
 
   .flex-right {
     justify-content: right;
-    align-items: right;
   }
   
   .justify-center {
@@ -160,16 +137,6 @@ body.wrong {
     transform: none;
   }
 
-/* .btn.correct {
-    background-color: #c6eb7c;
-    color: black;
-}
-
-.btn-wrong {
-    background-color: rgb(201, 85, 85)
-} */
-
-
 .answer-btn {
   font-size: 1.8rem;
   padding: 2rem;
@@ -184,27 +151,31 @@ body.wrong {
   outline: none;
 }
 
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* High Scores List */
+#high-scores {
+  font-size: 2.8rem;
 }
+
 
 /* Footer */
 
 .flex-footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding-bottom: 5px 0 5px 10px;
+  font-size: 3.2rem;
+}
 
+#score {
+  justify-content: left;
+}
+
+#timer {
+  justify-content: right;
 }
 
 /* Media Queries */
-/*
-  These rules take effect when the browser's width
-  is either 768px or less.
-*/
 
 @media screen and (min-width: 640px) { 
   .container {width: 50%;} 
@@ -213,13 +184,11 @@ body.wrong {
 /* Media Queries: Tablet Landscape */
 @media screen and (max-width: 1060px) {
   .container { width:67%; }
-  /* #secondary { width:30%; margin-left:3%;}   */
 }
 
 /* Media Queries: Tabled Portrait */
 @media screen and (max-width: 768px) {
   .container { width:100%; }
-  /* #secondary { width:100%; margin:0; border:none; } */
 }
 
 @media (min-width: 640px) { body {font-size:1rem;} } 
