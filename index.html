@@ -19,10 +19,10 @@
         <section id="home" class="flex-center flex-column">
 
             <!-- Main Title & Buttons -->
-            <header class="btn-grid">
+            <header id="header" class="btn-grid">
                 <h1 id="main-title">JavaScript Quiz</h1>
                 <button id="play-btn" class="btn">Play</button>
-                <button id="scores-btn" class="btn">High Scores</button>
+                <button id="scores-btn" class="btn hidden">High Scores</button>
             </header>
 
             <!-- Question & Answer Section -->
@@ -37,9 +37,16 @@
 
                 <!-- Current Score & Timer -->
                 <footer id="quiz-footer" class="flex-footer">
-                    <h3 id="score" class="flex-left"></h3>
-                    <h3 id="timer" class="flex-right"></h3>
+                    <h3 id="score" ></h3>
+                    <h3 id="timer"></h3>
                 </footer>
+            </article>
+
+            <!-- High Scores Section -->
+            <article id="high-scores" class="flex-container hidden">
+                <h2>High Scores</h2>
+                <ol id="scores-list" type="1"></ol>
+            </article>
         </section>
 
     </main>
