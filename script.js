@@ -16,9 +16,6 @@ let newChoice4 = document.getElementById("answer-4");
 
 var scoresButton = document.getElementById("scores-btn");
 
-
-
-
 var timerEl = document.getElementById("timer");
 
 var score = 0;
@@ -28,7 +25,7 @@ var timer = 0;
 startButton.addEventListener("click", startGame);
 quizContent.classList.add("hidden");
 
-// Starts the game by removing the home page content and displaying the first question.
+// Starts the game by displaying the first multiple-choice question.
 function startGame() {
     console.log("The game has started!");
     startButton.classList.add("hidden");

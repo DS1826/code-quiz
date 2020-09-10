@@ -177,13 +177,14 @@ h1 {
 
 /* Media Queries */
 
-@media screen and (min-width: 640px) { 
-  .container {width: 50%;} 
+/* Media Queries: Small Devices */
+@media screen and (max-width: 640px) { 
+  .container {width: 40%;} 
 }
 
 /* Media Queries: Tablet Landscape */
 @media screen and (max-width: 1060px) {
-  .container { width:67%; }
+  .container { width:100%; }
 }
 
 /* Media Queries: Tabled Portrait */
