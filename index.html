@@ -43,7 +43,18 @@
             </article>
 
             <!-- High Scores Section -->
-            <article id="high-scores" class="flex-container hidden">
+            <article id="save-score" class="flex-container hidden">
+                <h2>Your Final Score</h2>
+                <br>
+                <h2 id="user-score"></h2>
+                <br>
+                <label for="initials">Player Initials</label>
+                <input id="initials" type="text" placeholder="Enter your initials here">
+                <br>
+                <button id="save-btn" class="btn" disabled>Save Score</button>
+                <ol id="scores-list" type="1"></ol>
+            </article>
+            <article id="high-scores-list" class="flex-container hidden">
                 <h2>High Scores</h2>
                 <ol id="scores-list" type="1"></ol>
             </article>
